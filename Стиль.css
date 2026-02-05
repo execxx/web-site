@@ -1,0 +1,247 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1a2f1a;
+    padding: 20px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+    filter: brightness(0.6);
+}
+
+.tree-card {
+    max-width: 900px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.92);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.tree-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-header {
+    background: linear-gradient(135deg, #3a5f3a 0%, #2a4a2a 100%);
+    color: white;
+    padding: 25px;
+    text-align: center;
+    position: relative;
+}
+
+.card-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.card-header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.tree-icon {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    color: #c9b166;
+}
+
+.card-content {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.tree-description {
+    line-height: 1.7;
+    font-size: 1.1rem;
+    color: #333;
+    text-align: justify;
+}
+
+.tree-facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.fact {
+    background-color: #f0f7f0;
+    padding: 15px;
+    border-radius: 10px;
+    border-left: 4px solid #3a5f3a;
+}
+
+.fact h3 {
+    color: #2a4a2a;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.tree-link {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.tree-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: linear-gradient(to right, #3a5f3a, #4a7c4a);
+    color: white;
+    text-decoration: none;
+    padding: 16px 35px;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(58, 95, 58, 0.4);
+    border: none;
+    cursor: pointer;
+}
+
+.tree-button:hover {
+    background: linear-gradient(to right, #2a4a2a, #3a5f3a);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(58, 95, 58, 0.6);
+    gap: 15px;
+}
+
+.tree-button:active {
+    transform: translateY(1px);
+}
+
+.tree-button i {
+    font-size: 1.4rem;
+}
+
+.card-footer {
+    padding: 20px;
+    text-align: center;
+    background-color: #f8f8f8;
+    color: #666;
+    font-size: 0.9rem;
+    border-top: 1px solid #eee;
+}
+
+/* Декоративные элементы */
+.leaf {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: #3a5f3a;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    opacity: 0.7;
+    z-index: -1;
+    animation: float 15s infinite linear;
+}
+
+.leaf:nth-child(1) {
+    top: 10%;
+    left: 5%;
+    width: 30px;
+    height: 30px;
+    animation-delay: 0s;
+    background-color: #4a7c4a;
+}
+
+.leaf:nth-child(2) {
+    top: 20%;
+    right: 8%;
+    width: 50px;
+    height: 50px;
+    animation-delay: 2s;
+    animation-duration: 18s;
+}
+
+.leaf:nth-child(3) {
+    bottom: 15%;
+    left: 10%;
+    width: 35px;
+    height: 35px;
+    animation-delay: 5s;
+    background-color: #5a9c5a;
+    animation-duration: 20s;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(180deg);
+    }
+    100% {
+        transform: translateY(0) rotate(360deg);
+    }
+}
+
+@media (max-width: 768px) {
+    .tree-card {
+        max-width: 95%;
+    }
+    
+    .card-header h1 {
+        font-size: 2rem;
+    }
+    
+    .card-content {
+        padding: 20px;
+    }
+    
+    .tree-facts {
+        grid-template-columns: 1fr;
+    }
+    
+    .tree-button {
+        padding: 14px 25px;
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-header {
+        padding: 20px 15px;
+    }
+    
+    .card-header h1 {
+        font-size: 1.7rem;
+    }
+    
+    .tree-description {
+        font-size: 1rem;
+    }
+}
